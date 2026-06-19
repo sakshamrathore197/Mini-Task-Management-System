@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Dashboard</h2>
+<div class="cards">
+
+    <div class="card total">
+        <h2>Total Tasks</h2>
+        <h1>{{ total_tasks }}</h1>
+    </div>
+
+    <div class="card pending">
+        <h2>Pending</h2>
+        <h1>{{ pending_tasks }}</h1>
+    </div>
+
+    <div class="card progress">
+        <h2>In Progress</h2>
+        <h1>{{ in_progress }}</h1>
+    </div>
+
+    <div class="card completed">
+        <h2>Completed</h2>
+        <h1>{{ completed }}</h1>
+    </div>
+
+    <div class="card overdue">
+        <h2>Overdue</h2>
+        <h1>{{ overdue }}</h1>
+    </div>
+
+    <div class="card high">
+        <h2>High Priority</h2>
+        <h1>{{ high_priority }}</h1>
+    </div>
+
+</div>
+
+<h2>Latest Tasks</h2>
+
+<table border="1">
+    <tr>
+        <th>Title</th>
+        <th>Assigned To</th>
+        <th>Status</th>
+    </tr>
+
+    {% for task in latest_tasks %}
+    <tr>
+        <td>{{ task.title }}</td>
+        <td>{{ task.assigned_to }}</td>
+        <td>{{ task.status }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}
